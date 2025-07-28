@@ -1,0 +1,40 @@
+function dydx = twoode3(x,y,region,IOP)
+global sigma del_pi R T D2 D3 c2b c3b n A omega k1 k_1 k2 mu Kc Ls Lc Ks Lp PeL PeS sigmaL sigmaS alphaL AP D2s D3s betaa Q0 dP
+
+%   y(1)=p, y(2)=dp/dx, y(3)=c, y(4)=dc/dc
+
+p = y(1);
+c2 = y(3);
+
+%a=1; % funciton for the locaiton of the cc
+a = (1-1./(1+exp(-50*(x-Lc/5)/Lc)))*5;
+%a=1;
+
+% equations
+dydx(3) = y(4);
+
+pb=IOP+dP;
+
+switch region
+    case 1    % x in [0 Lc] % choroid
+        
+        Q = Lp*(pb-p) - Lp*sigma*R*T*(c2b-c2); % net flux exchange with blood vessels
+        
+        b2 = betaa*(c2b-c2)+(1-sigma)*Q*(c2b+c2)/2;
+        dydx(1) = y(2);
+        dydx(2) = -Q.*a/Kc*mu;
+        dydx(4) = 1/D2*(-Kc/mu*y(2)*y(4)+y())
+            -dydx(2).*c2-y(2)*y(4)-b2.*a);
+    case 2    % x in [Lc Ls] % sclera
+        dydx(1) = y(2)/Ks*mu;
+        dydx(2) = 0;
+        dydx(4) = 1/D2s*(-y(2)*y(4));
+end
+
+
+
+
+
+
+
+
