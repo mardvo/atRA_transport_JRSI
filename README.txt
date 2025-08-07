@@ -1,3 +1,5 @@
+File atRA serum concentration data.xlsx contains experimental measurements used to produce Figure 5. 
+
 The structure of the codes is as follows.
 
 Parameters are selected in folder 'parameters'. It has separate files for mouse, human, atRA parameters and blood vessel distribution function.

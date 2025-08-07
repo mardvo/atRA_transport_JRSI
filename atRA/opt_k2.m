@@ -24,10 +24,12 @@ end
 
 feeding =0; 
 parameters_atra;
-%pp = fmincon(@cost_fun_atra1,[k2],[],[],[],[],[k2/3],[k2*3]);
+
 pp = fmincon(@cost_fun_atra1,[atra_prod],[],[],[],[],[atra_prod/5],[atra_prod*5]);
 
 k2=pp(1);
 
 
+%feeding =1; 
+%pp = fmincon(@cost_fun_atra1,[k2],[],[],[],[],[k2/3],[k2*3]);
 

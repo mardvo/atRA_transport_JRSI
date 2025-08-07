@@ -38,18 +38,3 @@ ll.Interpreter='latex';
 set(gca,'TickLabelInterpreter','latex')
 ylim([0,0.7])
 
-%albumin
-kk=[5,6];
-[Si,Sti,rangeSi,rangeSti,var] = efast_sd_2(Y,OMi,MI,kk);
-
-
-figure
-bar(1:k,[Sti(:,kk)])
-hold on 
-set(gca,'xticklabel',efast_var)
-set(gca,'Fontsize',14)
-ll=legend(y_var_label(kk))
-ll.Interpreter='latex';
-ylim([0,1])
-ylabel('$S_T$','Interpreter','latex')
-set(gca,'TickLabelInterpreter','latex')
